@@ -1,0 +1,21 @@
+{
+  "response": {
+    "DataSource": [
+      {
+        "path": "home",
+        "rootcomponent": "component/home/home",
+        "component": "HomeComponent"
+      },
+      {
+        "path": "post",
+        "rootcomponent": "component/post/post",
+        "component": "PostComponent"
+      },
+      {
+        "path": "simple",
+        "rootcomponent": "component/simple-page/simple-page",
+        "component": "SimplePageComponent"
+      }
+    ]
+  }
+}

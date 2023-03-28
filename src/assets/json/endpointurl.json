@@ -1,0 +1,31 @@
+{
+  "last_date": "2022-02-14 16:12:40",
+  "sitemapItems": [
+    {
+      "title": "Squad Front End",
+      "url": "squad-front-end",
+      "template": "page",
+      "post_modified": "2022-02-14 16:12:40"
+    },
+    {
+      "title": "Squad Full Stack",
+      "url": "squad-fullstack",
+      "template": "page",
+      "post_modified": "2022-02-10 16:05:24",
+      "children": [
+        {
+          "title": "Interna full stack",
+          "url": "interna-full-stack",
+          "template": "page",
+          "data": {},
+          "post_modified": "2021-12-14 14:02:14"
+        }
+      ]
+    },
+    {
+      "title": "Squad back end",
+      "url": "squad-back-end",
+      "template": "page"
+    }
+  ]
+}
