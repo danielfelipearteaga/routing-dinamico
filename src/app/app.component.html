@@ -1,1 +1,8 @@
+
+<ul>
+  <li *ngFor="let route of dynamicRoutes">
+    <a [routerLink]="[route.path]">{{ route.component }}</a>
+  </li>
+</ul>
+
 <router-outlet></router-outlet>
