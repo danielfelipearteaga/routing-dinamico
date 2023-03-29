@@ -49,7 +49,7 @@ export class AppRoutingModule implements OnDestroy {
   }
 
   getRoutesDynamic() {
-    this.subRouting = this.routingService.getRouting().subscribe((data) => {
+    this.subRouting = this.routingService.getRouting().subscribe(data => {
       this.routing = data.response.DataSource;
       const config = this.router.config;
 
