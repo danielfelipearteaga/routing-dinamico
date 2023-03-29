@@ -21,5 +21,4 @@ export class AppComponent implements OnInit {
     .subscribe( routes => this.dynamicRoutes = routes);
   }
 
-
 }

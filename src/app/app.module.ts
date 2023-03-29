@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 export function routingService(routing: RoutingService) {
   return (): Promise<any> => {
     return routing.searchRouting();
-  }
+  };
 }
 
 @NgModule({
