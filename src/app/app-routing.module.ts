@@ -1,6 +1,7 @@
 import { NgModule, OnDestroy } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
 // import { EmptyComponent } from './component/empty/empty.component';
 // import { HomeComponent } from './component/home/home.component';
 // import { PostComponent } from './component/post/post.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule implements OnDestroy {
-  public routing!: Route[];
+
   private subRouting: Subscription = new Subscription();
 
   private Ruta: string;
@@ -37,30 +38,32 @@ export class AppRoutingModule implements OnDestroy {
     this.getRoutesDynamic();
   }
 
-  getRoutesStatic() {
-    const config = this.router.config;
-    config.push({
-      path: this.Ruta,
-      component: require('./' + this.RutaComponente + '.component')[
-        this.NombreComponente
-      ],
-    });
-    this.router.resetConfig(config);
-  }
+  // getRoutesStatic() {
+  //   const config = this.router.config;
+  //   config.push({
+  //     path: this.Ruta,
+  //     component: require('./' + this.RutaComponente + '.component')[
+  //       this.NombreComponente
+  //     ],
+  //   });
+  //   this.router.resetConfig(config);
+  // }
 
   getRoutesDynamic() {
-    this.subRouting = this.routingService.getRouting().subscribe((data) => {
-      this.routing = data.response.DataSource;
+
+    this.subRouting = this.routingService.getRouting()
+    .subscribe(({ response }) => {
+
       const config = this.router.config;
 
-      for (let i in this.routing) {
+      response.DataSource.forEach(({path, rootcomponent, component}) => {
+
         config.push({
-          path: this.routing[i].path,
-          component: require('./' +
-            this.routing[i].rootcomponent +
-            '.component')[this.routing[i].component],
-        });
-      }
+          path: path,
+          component: require(`./${ rootcomponent }.component`)[component]
+        })
+
+      });
 
       config.push({
         path: '',
@@ -70,9 +73,7 @@ export class AppRoutingModule implements OnDestroy {
 
       config.push({
         path: '**',
-        component: require('./component/pagenotfound/pagenotfound.component')[
-          'PagenotfoundComponent'
-        ],
+        component: PagenotfoundComponent, // no veo razón de require aquí
       });
 
       this.router.resetConfig(config);

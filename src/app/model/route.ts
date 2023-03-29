@@ -1,3 +1,11 @@
+export interface RoutingResponse {
+  response: Response;
+}
+
+export interface Response {
+  DataSource: Route[];
+}
+
 export class Route {
   constructor(
     public path: string,
@@ -5,3 +13,5 @@ export class Route {
     public component: string
   ) {}
 }
+
+
