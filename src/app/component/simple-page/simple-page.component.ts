@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-simple-page',
   templateUrl: './simple-page.component.html',
-  styleUrls: ['./simple-page.component.scss'],
+  styleUrls: ['./simple-page.component.scss']
 })
-export class SimplePageComponent {}
+export class SimplePageComponent {
+
+}
